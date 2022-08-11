@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Visitors extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        //
+        Schema::create('visitors', function(Blueprint $table){
+            $table->engine = 'InnoDB';
+            $table->id();
+            $table->string('name');
+            $table->string('contact')->nullable();
+            $table->string('card_number')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+        Schema::dropDatabaseIfExists('visitors');
+    }
+}
